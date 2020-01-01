@@ -12,6 +12,7 @@ export default {
     createChirp: ChirpResolvers.createChirp,
     updateChirp: ChirpResolvers.updateChirp,
     deleteChirp: ChirpResolvers.deleteChirp,
-    signup: UserResolvers.signup
+    signup: UserResolvers.signup,
+    login: UserResolvers.login
   }
 };
