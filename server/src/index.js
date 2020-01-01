@@ -15,6 +15,7 @@ import "./config/db";
 import constants from "./config/constants";
 import typeDefs from "./graphql/schema";
 import resolvers from "./graphql/resolvers";
+import mocks from "./mocks";
 
 const app = express();
 
@@ -25,9 +26,15 @@ server.applyMiddleware({ app });
 
 const PORT = process.env.PORT || 3000;
 
-app.listen({ port: PORT }, () =>
-  console.log(`Server ready at ${PORT} and ${server.graphqlPath}`)
-);
+mocks().then(() => {
+  app.listen({ port: PORT }, () =>
+    console.log(`Server ready at ${PORT} and ${server.graphqlPath}`)
+  );
+});
+
+// app.listen({ port: PORT }, () =>
+//   console.log(`Server ready at ${PORT} and ${server.graphqlPath}`)
+// );
 // app.use(bodyParser.json());
 
 // app.use(
