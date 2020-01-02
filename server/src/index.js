@@ -16,21 +16,19 @@ import constants from "./config/constants";
 import typeDefs from "./graphql/schema";
 import resolvers from "./graphql/resolvers";
 import mocks from "./mocks";
+import middleware from "./config/middleware";
 // import { Mongoose } from "mongoose";
 
 const app = express();
 
-const server = new ApolloServer({ typeDefs, resolvers });
-server.applyMiddleware({ app });
+middleware(app);
 
 // const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 const PORT = process.env.PORT || 3000;
 
 mocks().then(() => {
-  app.listen({ port: PORT }, () =>
-    console.log(`Server ready at ${PORT} and ${server.graphqlPath}`)
-  );
+  app.listen({ port: PORT }, () => console.log(`Server ready at ${PORT}`));
 });
 
 // app.listen({ port: PORT }, () =>
