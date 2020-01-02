@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-// import express from "express";
-const express = require("express");
+import express from "express";
+// const express = require("express");
 // import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
 // const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
 // import { makeExecutableSchema } from "graphql-tools";
