@@ -28,7 +28,13 @@ middleware(app);
 const PORT = process.env.PORT || 3000;
 
 mocks().then(() => {
-  app.listen({ port: PORT }, () => console.log(`Server ready at ${PORT}`));
+  app.listen({ port: PORT }, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`Server ready at ${PORT}`);
+    }
+  });
 });
 
 // app.listen({ port: PORT }, () =>
