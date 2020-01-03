@@ -32,7 +32,7 @@ UserSchema.methods = {
   _hashPassword(password) {
     return hashSync(password);
   },
-  authenticateUser(password) {
+  authUser(password) {
     return compareSync(password, this.password);
   },
   createToken() {

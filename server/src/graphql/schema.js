@@ -1,18 +1,3 @@
-// export default `
-//     type Chirp {
-//         _id: String
-//         text: String
-//     }
-
-//     type Query {
-//         getChirps: [Chirp]
-//     }
-
-//     schema {
-//         query: Query
-//     }
-// `;
-
 const typeDefs = `
 scalar Date
 
@@ -35,17 +20,28 @@ type User {
     updatedAt: Date!
 }
 
+type Me {
+    _id: ID!
+    username: String
+    email: String!
+    firstName: String
+    lastName: String
+    avatar: String
+    createdAt: Date!
+    updatedAt: Date!
+}
+
 type Chirp {
     _id: ID!
     text: String!
     createdAt: Date!
     updatedAt: Date!
-
 }
 
 type Query {
     getChirp(_id: ID!): Chirp
     getChirps: [Chirp]
+    me: Me
 }
 
 type Mutation {

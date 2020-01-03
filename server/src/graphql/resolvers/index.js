@@ -6,7 +6,8 @@ export default {
   Date: GraphQLDate,
   Query: {
     getChirp: ChirpResolvers.getChirp,
-    getChirps: ChirpResolvers.getChirps
+    getChirps: ChirpResolvers.getChirps,
+    me: UserResolvers.me
   },
   Mutation: {
     createChirp: ChirpResolvers.createChirp,
